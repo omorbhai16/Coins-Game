@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tap To Earn - Final</title>
+    <link rel="stylesheet" href="coine.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+
+
+
+<div id="auth-screen-container" class="auth-wrapper">
+    <div class="auth-card-box">
+        <h2 id="authFormTitle" class="auth-main-title">Player Login</h2>
+        <p id="authFormSubtitle" class="auth-subtitle">আপনার গেম ডাটা নিরাপদ রাখতে লগইন করুন</p>
+
+        <div class="auth-input-group">
+            <div class="input-field-wrapper">
+                <i class="fas fa-envelope input-icon"></i>
+                <input type="email" id="authEmailField" placeholder="Enter Your Email" required>
+            </div>
+            <div class="input-field-wrapper">
+                <i class="fas fa-lock input-icon"></i>
+                <input type="password" id="authPasswordField" placeholder="Enter Password (Min 6 Chars)" required>
+            </div>
+        </div>
+
+        <div class="auth-action-area">
+            <button id="primaryAuthBtn" class="auth-submit-btn" onclick="handlePrimaryAuthAction()">Login Now</button>
+            <p class="auth-toggle-text">
+                <span id="authToggleMessage">নতুন প্লেয়ার? এখানে অ্যাকাউন্ট তৈরি করুন:</span>
+                <strong id="authToggleActionBtn" onclick="toggleAuthFormMode()">Create Account</strong>
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="auth-switch-corner">
+    <button id="switchAccountBtn" class="switch-btn" onclick="logoutPlayerForSwitch()">
+        <i class="fas fa-sign-out-alt"></i> Switch ID
+    </button>
+</div>
+
+
+
+
+
+    <div class="settings-container">
+        <button class="settings-btn" id="settingsBtn">
+            <i class="fas fa-cog"></i>
+        </button>
+        <div class="dropdown-content" id="myDropdown">
+            <a href="about.html"><i class="fas fa-info-circle"></i> About Us</a>
+            <a href="contact.html"><i class="fas fa-envelope"></i> Contact Us</a>
+            <a href="privacy.html"><i class="fas fa-shield-alt"></i> Privacy Policy</a>
+        </div>
+    </div>
+
+    <div class="header-section">
+        <h1 id="balanceDisplay">0</h1>
+        <p>Total Coins</p>
+    </div>
+
+    <div class="game-area">
+        <img src="coine.png" alt="Big Coin" class="main-tap-btn" id="mainCoinBtn">
+        <div class="tap-to-coin"> <h3>Tap To Coin</h3></div>
+    </div>
+
+    <div id="feature-overlay" class="overlay">
+        <div class="overlay-content">
+            <span class="close-btn" onclick="closeOverlay()">&times;</span>
+            <div id="overlay-body"></div>
+        </div>
+    </div>
+
+    <nav class="bottom-navigation">
+        <div class="nav-button" onclick="openFeature('level')"><span class="nav-icon">⭐</span><span class="nav-label">Level</span></div>
+        <div class="nav-button" onclick="openFeature('refer')"><span class="nav-icon">👥</span><span class="nav-label">Refer</span></div>
+        <div class="nav-button" onclick="openFeature('tasks')"><span class="nav-icon">📋</span><span class="nav-label">Task</span></div>
+        <div class="nav-button" onclick="openFeature('earn')"><span class="nav-icon">💰</span><span class="nav-label">Earn</span></div>
+        <div class="nav-button" onclick="openFeature('withdraw')"><span class="nav-icon">🏦</span><span class="nav-label">Withdraw</span></div>
+        <div class="nav-button" onclick="openFeature('profile')"><span class="nav-icon">👤</span><span class="nav-label">Profile</span></div>
+    </nav>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-app.js";
+        import { getDatabase, ref, set, update, onValue } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-database.js";
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-auth.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyAYHnoMVXO_L6ocazlADEW3SXSFTfzFbu0",
+            authDomain: "coineran-237c2.firebaseapp.com",
+            databaseURL: "https://coineran-237c2-default-rtdb.firebaseio.com",
+            projectId: "coineran-237c2",
+            storageBucket: "coineran-237c2.firebasestorage.app",
+            messagingSenderId: "219570142042",
+            appId: "1:219570142042:web:27964f8af631b010421163"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+        const auth = getAuth(app);
+        window.fbAuth = auth;
+        window.fbDatabase = database;
+        window.dbRef = ref;
+        window.dbSet = set;
+        window.dbUpdate = update;
+        window.dbOnValue = onValue;
+        window.ref = ref;
+        window.set = set;
+        window.update = update;
+        window.onValue = onValue;
+        window.createUser = createUserWithEmailAndPassword;
+        window.signInUser = signInWithEmailAndPassword;
+        window.onAuthChanged = onAuthStateChanged;
+    </script>
+
+    <script src="coine.js"></script>
+</body>
+</html>
