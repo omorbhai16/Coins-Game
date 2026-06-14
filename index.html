@@ -4,26 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tap To Earn - Final</title>
+    <link rel="icon" type="image/png" href="coine.png">
     <link rel="stylesheet" href="coine.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-    <style>
-        /* ✅ Ad Container - একদম নিচে, গেমের কোনো এলিমেন্টকে ব্লক করবে না */
-        #ad-zone-bottom {
-            position: relative;
-            z-index: 0;
-            width: 100%;
-            min-height: 60px;
-            background: transparent;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 0 80px 0; /* নিচে nav এর জন্য extra padding */
-            box-sizing: border-box;
-            overflow: hidden;
-        }
-    </style>
 </head>
 <body>
 
@@ -51,7 +34,7 @@
         <div class="auth-action-area">
             <button id="primaryAuthBtn" class="auth-submit-btn" onclick="handlePrimaryAuthAction()">Login Now</button>
             <p class="auth-toggle-text">
-                <span id="authToggleMessage">নতুন প্লেয়ার? এখানে অ্যাকাউন্ট তৈরি করুন:</span>
+                <span id="authToggleMessage">নতুন প্লেয়ার? এখানে অ্যাকাউন্ট তৈরি করুন:</span>
                 <strong id="authToggleActionBtn" onclick="toggleAuthFormMode()">Create Account</strong>
             </p>
         </div>
@@ -63,6 +46,10 @@
         <i class="fas fa-sign-out-alt"></i> Switch ID
     </button>
 </div>
+
+
+
+
 
     <div class="settings-container">
         <button class="settings-btn" id="settingsBtn">
@@ -80,6 +67,19 @@
         <p>Total Coins</p>
     </div>
 
+    <div style="display:flex; justify-content:center; margin: 8px 0;">
+        <script>
+          atOptions = {
+            'key' : '734f5f5ca952221edf3a23302595f0cb',
+            'format' : 'iframe',
+            'height' : 50,
+            'width' : 320,
+            'params' : {}
+          };
+        </script>
+        <script src="https://www.highperformanceformat.com/734f5f5ca952221edf3a23302595f0cb/invoke.js"></script>
+    </div>
+
     <div class="game-area">
         <img src="coine.png" alt="Big Coin" class="main-tap-btn" id="mainCoinBtn">
         <div class="tap-to-coin"> <h3>Tap To Coin</h3></div>
@@ -92,22 +92,9 @@
         </div>
     </div>
 
-    <div id="ad-zone-bottom">
-
-        <script>
-          atOptions = {
-            'key' : '734f5f5ca952221edf3a23302595f0cb',
-            'format' : 'iframe',
-            'height' : 50,
-            'width' : 320,
-            'params' : {}
-          };
-        </script>
-        <script src="https://www.highperformanceformat.com/734f5f5ca952221edf3a23302595f0cb/invoke.js"></script>
-
+    <div style="margin: 8px 10px;">
         <script async="async" data-cfasync="false" src="https://pl29742139.effectivecpmnetwork.com/12c9a66eefdb0cc816d3034d3bd49b83/invoke.js"></script>
         <div id="container-12c9a66eefdb0cc816d3034d3bd49b83"></div>
-
     </div>
 
     <nav class="bottom-navigation">
